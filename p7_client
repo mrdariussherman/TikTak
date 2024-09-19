@@ -1,0 +1,16 @@
+#!/bin/bash
+server="wind"
+port=4000
+user="randy"
+password="candy"
+netcat="nc -C"
+testclnt="tiktak/app/client/TestClient"
+echo -e "\n\t\t******Test 1"
+stty -icanon && echo -ne "ID randy\r\nCRED 11111111111111111\r\n" | $netcat $server $port
+
+echo -e "\n\t\t******Test 2"
+stty -icanon && echo -ne "ID foo\r\n" | $netcat $server $port
+
+echo -e "\n\t\t******Test 3"
+java $testclnt $server $port $user $password TOST
+# java tiktak/app/client/TestClient wind 4000 randy candy TOST

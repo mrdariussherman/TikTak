@@ -1,0 +1,14 @@
+#!/bin/bash
+passfile="../passfile"
+port=4000
+echo "*****Preparing"
+rm connections.log
+rm *.html
+echo "*****Compiling"
+javac tiktak/app/server/ServerAIO.java
+echo "*****Run server"
+java tiktak/app/server/ServerAIO $port $passfile
+# echo "*Log"
+# tail connections.log
+# echo "*HTML"
+# cat *.html
